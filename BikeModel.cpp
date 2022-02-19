@@ -53,21 +53,52 @@ class rider {
             pos_y += vel*time_step*(gradient/(1+gradient*gradient)) ;
             vel = sqrt(vel*vel + 2*(power_added/mass_kg)) ;
         }
+
+        void reset(bool reset_power = true) {
+            // resets rider to initial conditions, setting velocity, power, gradient, time, and position to 0.
+            vel = 0 ;
+            gradient = 0 ;
+            time = 0 ;
+            pos_x = 0 , pos_y = 0 ;
+            if (reset_power) {
+                power = 0 ;
+            }
+        }
 } ;
 
 
 int main () {
-    // std::string name = "Me" ;
-    // rider myrider (name, 75);
-    // myrider.power = 200 ;
-    // myrider.gradient = 0.085 ;
-    // while (myrider.pos_y < 1046) {
-    //     myrider.update();
+    // std::string nameA = "A",
+    //             nameB = "B",
+    //             nameC = "C",
+    //             nameD = "D" ;
+    // rider testriders[] = {rider(nameA, 80),
+    //                       rider(nameB, 120),
+    //                       rider(nameC, 80),
+    //                       rider(nameD, 120)} ;
+    // testriders[0].power = 200 ;
+    // testriders[1].power = 200 ;
+    // testriders[2].power = 300 ;
+    // testriders[3].power = 300 ;
+    // float grad_step = 0.01 ;
+    // float speed_results[4][15] ;
+    //
+    // for (short i = 0; i < 15; i++) {
+    //     for (short rider_ind = 0; rider_ind < 4; rider_ind++) {
+    //         testriders[rider_ind].gradient = i*grad_step ;
+    //         for (short t = 0; t < 60; t++) {
+    //             testriders[rider_ind].update() ;
+    //         }
+    //         speed_results[rider_ind][i] = testriders[rider_ind].vel*3.6 ;
+    //         if (rider_ind != 0) {
+    //             std::cout << ", " ;
+    //         }
+    //         std::cout << testriders[rider_ind].vel*3.6 ;
+    //         testriders[rider_ind].reset(false) ;
+    //     }
+    //     std::cout << "\n" ;
     // }
-    // std::cout << "Time: " ;
-    // std::cout << (myrider.time)/60 << std::endl ;
-    // std::cout << "Speed: " ;
-    // std::cout << (myrider.vel)*3.6 << std::endl ;
+
 
     return 0 ;
 }
